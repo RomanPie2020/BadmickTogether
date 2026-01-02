@@ -1,10 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import {
-	IRequestGetFilteredEvents,
-	IRequestGetUserEvents,
-	IRequestUpdateEvent,
-	IResponseGetFilteredEvents,
-	IResponseJoinLeaveEvent,
+    IEventMessage,
+    IRequestGetFilteredEvents,
+    IRequestGetUserEvents,
+    IRequestUpdateEvent,
+    IResponseGetFilteredEvents,
+    IResponseJoinLeaveEvent,
 } from '../shared/interfaces/models'
 import { TEventInput } from '../shared/validations/event.schema'
 import { baseQueryWithReauth } from './baseQueryWithReauth'
@@ -59,7 +60,7 @@ export const eventService = createApi({
 			}),
 		}),
 
-		getFilteredEvents: build.query<
+			getFilteredEvents: build.query<
 			IResponseGetFilteredEvents,
 			IRequestGetFilteredEvents
 		>({
@@ -108,6 +109,44 @@ export const eventService = createApi({
 				return queryString ? `/api/events?${queryString}` : '/api/events'
 			},
 		}),
+
+		// ===== Message Endpoints =====
+		getEventMessages: build.query<IEventMessage[], number>({
+			query: eventId => ({
+				url: `/api/events/${eventId}/messages`,
+				method: 'GET',
+			}),
+			providesTags: (result, error, eventId) => [
+				{ type: 'Event', id: `messages-${eventId}` },
+			],
+		}),
+
+		createMessage: build.mutation<
+			IEventMessage,
+			{ eventId: number; message: string }
+		>({
+			query: ({ eventId, message }) => ({
+				url: `/api/events/${eventId}/messages`,
+				method: 'POST',
+				body: { message },
+			}),
+			invalidatesTags: (result, error, { eventId }) => [
+				{ type: 'Event', id: `messages-${eventId}` },
+			],
+		}),
+
+		deleteMessage: build.mutation<
+			void,
+			{ eventId: number; messageId: number }
+		>({
+			query: ({ eventId, messageId }) => ({
+				url: `/api/events/${eventId}/messages/${messageId}`,
+				method: 'DELETE',
+			}),
+			invalidatesTags: (result, error, { eventId }) => [
+				{ type: 'Event', id: `messages-${eventId}` },
+			],
+		}),
 	}),
 })
 
@@ -123,4 +162,7 @@ export const {
 	useGetUserEventsQuery,
 	useGetFilteredEventsQuery,
 	useLazyGetFilteredEventsQuery,
+	useGetEventMessagesQuery,
+	useCreateMessageMutation,
+	useDeleteMessageMutation,
 } = eventService

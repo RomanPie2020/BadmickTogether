@@ -3,6 +3,7 @@ import ApiError from '@/exceptions/apiError'
 import UserProfile from '@/profile/models/userProfile'
 import { logger } from '@/utils/logger/log'
 import { Op, OrderItem, WhereOptions } from 'sequelize'
+import { emitEventDeleted, emitEventUpdated, emitParticipantJoined, emitParticipantLeft } from '../config/socket'
 import { IFilters, SortByOption, SortOrder } from './event.types'
 import {
 	default as Event,
@@ -314,7 +315,37 @@ class EventService {
 		eventId: number,
 		data: Partial<EventAttributes>
 	) {
-		const event = await Event.findByPk(eventId)
+		const event = await Event.findByPk(eventId, {
+			include: [
+				{
+					association: Event.associations.creator,
+					attributes: ['id', 'username'],
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+				{
+					association: Event.associations.participants,
+					attributes: ['id', 'username'],
+					through: { attributes: [] },
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+			],
+		})
 		if (!event) {
 			throw ApiError.BadRequest('Івент не знайдено')
 		}
@@ -327,6 +358,43 @@ class EventService {
 			Object.entries(data).filter(([, v]) => v !== undefined && v !== null)
 		)
 		await event.update(cleaned)
+		
+		// Reload to get fresh data
+		await event.reload({
+			include: [
+				{
+					association: Event.associations.creator,
+					attributes: ['id', 'username'],
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+				{
+					association: Event.associations.participants,
+					attributes: ['id', 'username'],
+					through: { attributes: [] },
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+			],
+		})
+		
+		// Emit websocket event
+		emitEventUpdated(event)
+		
 		return event
 	}
 
@@ -337,24 +405,160 @@ class EventService {
 		if (event.creatorId !== userId)
 			throw ApiError.Forbidden('Ви не можете видалити цей івент')
 
+		const eventIdToEmit = event.id
 		await event.destroy()
+		
+		// Emit websocket event
+		emitEventDeleted(eventIdToEmit)
 	}
 	// 4) Додати учасника
 	async addParticipant(eventId: number, userId: number) {
-		const event = await Event.findByPk(eventId)
+		const event = await Event.findByPk(eventId, {
+			include: [
+				{
+					association: Event.associations.creator,
+					attributes: ['id', 'username'],
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+				{
+					association: Event.associations.participants,
+					attributes: ['id', 'username'],
+					through: { attributes: [] },
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+			],
+		})
 		if (!event) {
 			throw ApiError.NotFound('Івент не знайдено')
 		}
 		await event.addParticipant(userId)
+		
+		// Reload to get fresh participant data
+		await event.reload({
+			include: [
+				{
+					association: Event.associations.creator,
+					attributes: ['id', 'username'],
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+				{
+					association: Event.associations.participants,
+					attributes: ['id', 'username'],
+					through: { attributes: [] },
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+			],
+		})
+		
+		// Emit websocket event
+		emitParticipantJoined(eventId, event)
 	}
 
 	// 5) Видалити учасника
 	async removeParticipant(eventId: number, userId: number) {
-		const event = await Event.findByPk(eventId)
+		const event = await Event.findByPk(eventId, {
+			include: [
+				{
+					association: Event.associations.creator,
+					attributes: ['id', 'username'],
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+				{
+					association: Event.associations.participants,
+					attributes: ['id', 'username'],
+					through: { attributes: [] },
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+			],
+		})
 		if (!event) {
 			throw ApiError.NotFound('Івент не знайдено')
 		}
 		await event.removeParticipant(userId)
+		
+		// Reload to get fresh participant data
+		await event.reload({
+			include: [
+				{
+					association: Event.associations.creator,
+					attributes: ['id', 'username'],
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+				{
+					association: Event.associations.participants,
+					attributes: ['id', 'username'],
+					through: { attributes: [] },
+					required: false,
+					include: [
+						{
+							model: UserProfile,
+							as: 'profile',
+							attributes: ['nickname'],
+							required: false,
+						},
+					],
+				},
+			],
+		})
+		
+		// Emit websocket event
+		emitParticipantLeft(eventId, event)
 	}
 
 	//  @param userId – ID поточного користувача

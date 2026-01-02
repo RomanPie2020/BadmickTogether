@@ -15,6 +15,7 @@ import SignUp from './components/screens/SignUp'
 import Loader from './components/ui/loaders/Loader'
 import './index.css'
 import { store } from './store/store'
+import App from './App'
 
 const MyProfile = lazy(() => import('./components/screens/MyProfile'))
 const MyEvents = lazy(() => import('./components/screens/MyEvents'))

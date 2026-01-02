@@ -333,3 +333,23 @@ export interface IFilterActionPayload {
 	category: keyof IFiltersState['values']
 	value: string | TDateRange
 }
+
+// ---- Chat ----
+
+// Message interface
+export interface IEventMessage {
+	id: number
+	eventId: number
+	userId: number
+	message: string
+	createdAt: string
+	updatedAt: string
+	user: {
+		id: number
+		username: string
+		profile?: {
+			nickname: string
+			avatarUrl?: string | null
+		}
+	}
+}

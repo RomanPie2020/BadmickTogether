@@ -2,24 +2,21 @@ import { isAuthorized } from '@/middleware/authMiddleware'
 import { validateBody } from '@/middleware/validateBody'
 import { Router } from 'express'
 import { eventController } from './event.controller'
+import { eventMessageController } from './event.messageController'
 import { eventSchema } from './schemas/event.schema'
 
 const router = Router()
 
-// Список всіх івентів (public)
 router.get('/api/events', eventController.getFilteredEvents)
 
-// Деталі конкретного івенту (public)
 router.get('/api/events/:id', eventController.getEventById)
 
-// Створити новий івент (тільки авторизовані)
 router.post(
 	'/api/events',
 	isAuthorized,
 	// validateBody(eventSchema),
 	eventController.createEvent
 )
-// Оновити івент (тільки той, хто створив)
 router.put(
 	'/api/events/:id',
 	isAuthorized,
@@ -27,15 +24,29 @@ router.put(
 	eventController.updateEvent
 )
 
-// Видалити івент (тільки той, хто створив)
 router.delete('/api/events/:id', isAuthorized, eventController.deleteEvent)
 
-// Приєднатися до івенту
 router.post('/api/events/:id/join', isAuthorized, eventController.joinEvent)
 
-// Вийти з івенту
 router.post('/api/events/:id/leave', isAuthorized, eventController.leaveEvent)
 
 router.get('/api/events/user/:id', isAuthorized, eventController.getUserEvents)
+
+// ===== Chat and message routes =====
+router.get(
+	'/api/events/:eventId/messages',
+	isAuthorized,
+	eventMessageController.getEventMessages
+)
+router.post(
+	'/api/events/:eventId/messages',
+	isAuthorized,
+	eventMessageController.createMessage
+)
+router.delete(
+	'/api/events/:eventId/messages/:messageId',
+	isAuthorized,
+	eventMessageController.deleteMessage
+)
 
 export const eventRouter = router

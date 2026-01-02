@@ -1,6 +1,7 @@
 import { logger } from '@/utils/logger/log'
 import cors from 'cors'
 import express, { urlencoded } from 'express'
+import { createServer } from 'http'
 
 import { authRouter } from '@/auth/auth.routes'
 import { oAuthService } from '@/auth/services/auth.oAuthService'
@@ -13,8 +14,14 @@ import { profileRouter } from '@/profile/profile.routes'
 import compression from 'compression'
 import helmet from 'helmet'
 import passport from 'passport'
+import { initializeSocket } from './config/socket'
 
 const app = express()
+const httpServer = createServer(app)
+
+// Initialize Socket.IO
+const io = initializeSocket(httpServer)
+logger.info('Socket.IO initialized')
 
 // Middleware
 app.use(
@@ -59,7 +66,7 @@ app.all('*', (req, res) => {
 const PORT = process.env.PORT || 3000
 
 // logger.info(`database password is: ${typeof process.env.DB_PASSWORD}`)
-app.listen(PORT, async () => {
+httpServer.listen(PORT, async () => {
 	logger.info(`Server is running on1 port ${PORT}`)
 	await testDbConnection()
 })

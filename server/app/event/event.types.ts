@@ -1,9 +1,9 @@
 export interface IFilters {
-	eventType?: string[] // Наприклад: ['Турнір', 'Тренування']
-	dateFrom?: string // Наприклад: '2025-06-01'
-	dateTo?: string // Наприклад: '2025-06-07'
-	gameType?: string[] // Наприклад: ['Одиночна', 'Парна']
-	levelOfPlayers?: string[] // Наприклад: ['Новачок', 'Просунутий']
+	eventType?: string[]
+	dateFrom?: string
+	dateTo?: string
+	gameType?: string[]
+	levelOfPlayers?: string[]
 }
 
 export type SortByOption = 'eventDate' | 'title' | 'location'

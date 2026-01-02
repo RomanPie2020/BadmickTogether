@@ -69,39 +69,24 @@ services:
       - app-network
     command: npm run dev
 
-  frontend:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
-    container_name: badminton_frontend
-    ports:
-      - '5173:5173'
-    volumes:
-      - ./client:/app
-      - /app/node_modules
-    networks:
-      - app-network
-    command: npm run dev
+  # frontend:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   container_name: badminton_frontend
+  #   ports:
+  #     - '5173:5173'
+  #   volumes:
+  #     - ./client:/app
+  #     - /app/node_modules
+  #   networks:
+  #     - app-network
+  #   command: npm run dev
 
 networks:
   app-network:
     driver: bridge
 volumes:
   postgres_data:
-#   frontend:
-#     container_name: frontend
-#     build:
-#       context: ./client
-#       dockerfile: Dockerfile
-#     restart: always
-#     depends_on:
-#       # - mysql
-#       # - backend
-#     ports:
-#       - '5173:5173'
-#     command: bash -c "npm run dev -- --host 0.0.0.0"
-#     volumes:
-#       - ./client:/app
-#     networks:
-#       - net
+
 
