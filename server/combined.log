@@ -452,3 +452,145 @@
 {"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-02T01:11:41.236Z"}
 {"level":"info","message":"Message created for event 4 by user 10","timestamp":"2026-01-02T01:11:46.104Z"}
 {"level":"info","message":"Emitted new message to event-4. MsgID: 36","timestamp":"2026-01-02T01:11:46.105Z"}
+{"level":"info","message":"Socket.IO initialized","timestamp":"2026-01-04T22:52:05.298Z"}
+{"level":"info","message":"Server is running on1 port 3000","timestamp":"2026-01-04T22:52:05.306Z"}
+{"level":"error","message":"Unable to connect to the database: password authentication failed for user \"romankaras2004\"","name":"SequelizeConnectionError","original":{"code":"28P01","file":"auth.c","length":110,"line":"317","name":"error","routine":"auth_failed","severity":"FATAL"},"parent":{"code":"28P01","file":"auth.c","length":110,"line":"317","name":"error","routine":"auth_failed","severity":"FATAL"},"stack":"SequelizeConnectionError: password authentication failed for user \"romankaras2004\"\n    at Client._connectionCallback (/app/node_modules/sequelize/src/dialects/postgres/connection-manager.js:196:24)\n    at Client._handleErrorWhileConnecting (/app/node_modules/pg/lib/client.js:336:19)\n    at Client._handleErrorMessage (/app/node_modules/pg/lib/client.js:356:19)\n    at Connection.emit (node:events:507:28)\n    at /app/node_modules/pg/lib/connection.js:116:12\n    at Parser.parse (/app/node_modules/pg-protocol/src/parser.ts:103:9)\n    at Socket.<anonymous> (/app/node_modules/pg-protocol/src/index.ts:7:48)\n    at Socket.emit (node:events:507:28)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)","timestamp":"2026-01-04T22:52:05.361Z"}
+{"expiredAt":"2026-01-03T01:01:23.000Z","level":"error","message":"Socket authentication failed: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at /app/node_modules/jsonwebtoken/verify.js:190:21\n    at getSecret (/app/node_modules/jsonwebtoken/verify.js:97:14)\n    at Object.module.exports [as verify] (/app/node_modules/jsonwebtoken/verify.js:101:10)\n    at Array.<anonymous> (/app/app/config/socket.ts:32:24)\n    at run (/app/node_modules/socket.io/dist/namespace.js:130:19)\n    at Namespace.run (/app/node_modules/socket.io/dist/namespace.js:141:9)\n    at Namespace._add (/app/node_modules/socket.io/dist/namespace.js:218:14)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-01-04T22:52:08.501Z"}
+{"level":"info","message":"Socket.IO initialized","timestamp":"2026-01-04T22:57:56.499Z"}
+{"level":"info","message":"Server is running on1 port 3000","timestamp":"2026-01-04T22:57:56.505Z"}
+{"level":"error","message":"Unable to connect to the database: password authentication failed for user \"romankaras2004\"","name":"SequelizeConnectionError","original":{"code":"28P01","file":"auth.c","length":110,"line":"317","name":"error","routine":"auth_failed","severity":"FATAL"},"parent":{"code":"28P01","file":"auth.c","length":110,"line":"317","name":"error","routine":"auth_failed","severity":"FATAL"},"stack":"SequelizeConnectionError: password authentication failed for user \"romankaras2004\"\n    at Client._connectionCallback (/app/node_modules/sequelize/src/dialects/postgres/connection-manager.js:196:24)\n    at Client._handleErrorWhileConnecting (/app/node_modules/pg/lib/client.js:336:19)\n    at Client._handleErrorMessage (/app/node_modules/pg/lib/client.js:356:19)\n    at Connection.emit (node:events:507:28)\n    at /app/node_modules/pg/lib/connection.js:116:12\n    at Parser.parse (/app/node_modules/pg-protocol/src/parser.ts:103:9)\n    at Socket.<anonymous> (/app/node_modules/pg-protocol/src/index.ts:7:48)\n    at Socket.emit (node:events:507:28)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)","timestamp":"2026-01-04T22:57:56.543Z"}
+{"level":"info","message":"Socket.IO initialized","timestamp":"2026-01-04T22:58:42.299Z"}
+{"level":"info","message":"Server is running on1 port 3000","timestamp":"2026-01-04T22:58:42.308Z"}
+{"level":"info","message":"Database connection has been established successfully12.","timestamp":"2026-01-04T22:58:42.428Z"}
+{"expiredAt":"2026-01-03T01:01:23.000Z","level":"error","message":"Socket authentication failed: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at /app/node_modules/jsonwebtoken/verify.js:190:21\n    at getSecret (/app/node_modules/jsonwebtoken/verify.js:97:14)\n    at Object.module.exports [as verify] (/app/node_modules/jsonwebtoken/verify.js:101:10)\n    at Array.<anonymous> (/app/app/config/socket.ts:32:24)\n    at run (/app/node_modules/socket.io/dist/namespace.js:130:19)\n    at Namespace.run (/app/node_modules/socket.io/dist/namespace.js:141:9)\n    at Namespace._add (/app/node_modules/socket.io/dist/namespace.js:218:14)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-01-04T22:58:42.638Z"}
+{"level":"info","message":"Refresh token saved for user 11","timestamp":"2026-01-04T22:59:29.925Z"}
+{"level":"info","message":"Користувач romanstone2004@gmail.com успішно увійшов","timestamp":"2026-01-04T22:59:29.926Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T22:59:30.028Z"}
+{"expiredAt":"2026-01-03T00:14:01.000Z","level":"error","message":"Socket authentication failed: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at /app/node_modules/jsonwebtoken/verify.js:190:21\n    at getSecret (/app/node_modules/jsonwebtoken/verify.js:97:14)\n    at Object.module.exports [as verify] (/app/node_modules/jsonwebtoken/verify.js:101:10)\n    at Array.<anonymous> (/app/app/config/socket.ts:32:24)\n    at run (/app/node_modules/socket.io/dist/namespace.js:130:19)\n    at Namespace.run (/app/node_modules/socket.io/dist/namespace.js:141:9)\n    at Namespace._add (/app/node_modules/socket.io/dist/namespace.js:218:14)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-01-04T22:59:41.653Z"}
+{"level":"error","message":"Error:","timestamp":"2026-01-04T22:59:42.996Z"}
+{"level":"info","message":"User logged out","timestamp":"2026-01-04T22:59:43.078Z"}
+{"level":"info","message":"Користувач romankaras2004@gmail.com успішно увійшов через Google","timestamp":"2026-01-04T22:59:48.784Z"}
+{"level":"info","message":"Отримані дані:","timestamp":"2026-01-04T22:59:48.785Z"}
+{"level":"info","message":"Refresh token saved for user 10","timestamp":"2026-01-04T22:59:48.791Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T22:59:49.932Z"}
+{"level":"info","message":"User logged out","timestamp":"2026-01-04T23:00:25.051Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:00:25.098Z"}
+{"level":"info","message":"Користувач romankaras2004@gmail.com успішно увійшов через Google","timestamp":"2026-01-04T23:00:37.001Z"}
+{"level":"info","message":"Отримані дані:","timestamp":"2026-01-04T23:00:37.001Z"}
+{"level":"info","message":"Refresh token saved for user 10","timestamp":"2026-01-04T23:00:37.008Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:00:38.231Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:01:17.477Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:01:17.816Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:01:19.275Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:01:20.380Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:13:52.504Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:13:52.844Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:13:54.223Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:13:54.944Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:14:05.143Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:14:05.157Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:14:08.146Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:14:08.685Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:14:46.143Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:14:46.783Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:15:13.158Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:15:13.195Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:15:25.153Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:15:25.540Z"}
+{"level":"info","message":"Emitted participant joined event: 10","timestamp":"2026-01-04T23:21:11.093Z"}
+{"level":"info","message":"Emitted participant left event: 10","timestamp":"2026-01-04T23:22:38.460Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:22:40.497Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:22:40.498Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:22:40.500Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:22:40.500Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:22:40.501Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:22:40.501Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:22:41.775Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:44:19.215Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:44:19.270Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:44:19.275Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:44:19.277Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:44:19.284Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:44:19.290Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:44:19.291Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:44:21.025Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:44:21.809Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:44:22.170Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:44:23.008Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:45:01.486Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:45:02.075Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:45:03.567Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:45:03.965Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:45:11.338Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:45:11.484Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:45:12.292Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:45:13.698Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:45:15.605Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:45:15.643Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:45:16.944Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:45:17.912Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:45:21.163Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:45:21.670Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:45:22.649Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:45:23.242Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:50:50.906Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:50:52.385Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:50:54.738Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:51:06.391Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:51:09.158Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:51:10.329Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:51:11.001Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:51:11.703Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:51:13.988Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:51:16.829Z"}
+{"level":"info","message":"Message created for event 4 by user 11","timestamp":"2026-01-04T23:51:28.568Z"}
+{"level":"info","message":"Emitted new message to event-4. MsgID: 37","timestamp":"2026-01-04T23:51:28.570Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:51:50.616Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:52:00.202Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:57:57.171Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:57:57.175Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:57:57.181Z"}
+{"level":"info","message":"User 10 left event room: event-4","timestamp":"2026-01-04T23:57:57.267Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:57:57.281Z"}
+{"level":"info","message":"User disconnected: 10","timestamp":"2026-01-04T23:57:57.289Z"}
+{"level":"info","message":"User connected: 10","timestamp":"2026-01-04T23:57:58.759Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-04T23:58:00.046Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:58:04.005Z"}
+{"level":"info","message":"Message created for event 4 by user 11","timestamp":"2026-01-04T23:58:07.309Z"}
+{"level":"info","message":"Emitted new message to event-4. MsgID: 38","timestamp":"2026-01-04T23:58:07.309Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:58:12.311Z"}
+{"level":"info","message":"Message created for event 4 by user 10","timestamp":"2026-01-04T23:58:14.813Z"}
+{"level":"info","message":"Emitted new message to event-4. MsgID: 39","timestamp":"2026-01-04T23:58:14.814Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:04.146Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:59:04.153Z"}
+{"level":"info","message":"User 10 left event room: event-4","timestamp":"2026-01-04T23:59:04.866Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:59:04.871Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:18.144Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:59:18.146Z"}
+{"level":"info","message":"User 10 left event room: event-4","timestamp":"2026-01-04T23:59:18.296Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:59:18.298Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:19.144Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:59:19.146Z"}
+{"level":"info","message":"User 10 left event room: event-4","timestamp":"2026-01-04T23:59:19.679Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:59:19.679Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:27.145Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:59:27.146Z"}
+{"level":"info","message":"User 10 left event room: event-4","timestamp":"2026-01-04T23:59:27.525Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:59:27.525Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:31.140Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:59:31.140Z"}
+{"level":"info","message":"User 10 left event room: event-4","timestamp":"2026-01-04T23:59:31.728Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:59:31.734Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:37.139Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:59:37.139Z"}
+{"level":"info","message":"User 10 left event room: event-4","timestamp":"2026-01-04T23:59:37.620Z"}
+{"level":"info","message":"User 10 joined event room: event-4","timestamp":"2026-01-04T23:59:37.625Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:56.457Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-04T23:59:56.894Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-04T23:59:58.200Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-04T23:59:59.120Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-05T00:00:00.575Z"}
+{"level":"info","message":"User 11 joined event room: event-4","timestamp":"2026-01-05T00:00:02.025Z"}
+{"level":"info","message":"User 11 left event room: event-4","timestamp":"2026-01-05T00:00:15.080Z"}
+{"level":"info","message":"User disconnected: 11","timestamp":"2026-01-05T00:00:20.003Z"}
+{"level":"info","message":"User connected: 11","timestamp":"2026-01-05T00:00:21.311Z"}

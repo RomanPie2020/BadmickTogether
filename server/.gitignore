@@ -2,3 +2,5 @@
 /node_modules
 /build
 /dist
+combined.log
+error.log

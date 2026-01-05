@@ -1,5 +1,4 @@
 import Home from './components/screens/Home'
-import { GlobalSocket } from './components/ui/GlobalSocket'
 
 function App() {
 	return (

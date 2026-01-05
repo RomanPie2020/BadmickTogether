@@ -8,7 +8,6 @@ export const GlobalSocket = () => {
 		state => state.authStatus.isAuthenticated
 	)
 
-	// Get token from localStorage
 	const token = localStorage.getItem('access_token')
 
 	// Initialize socket if authenticated
@@ -16,7 +15,8 @@ export const GlobalSocket = () => {
 
 	// Listen for event-related websocket events
 	useEventWebSocket()
-	console.log('Render:', { isAuthenticated, isConnected, token })
+	// console.log('Render:', { isAuthenticated, isConnected, token })
+
 	// Log connection status for debugging
 	useEffect(() => {
 		if (isAuthenticated) {

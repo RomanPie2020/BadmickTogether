@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { io, Socket } from 'socket.io-client'
+import { io } from 'socket.io-client'
 import { apiUrl } from '../configs/url.config'
+import { TSocket } from '../shared/interfaces/models'
 
-let socket: Socket | null = null
+let socket: TSocket = null
 
 export const useSocket = (token: string | null) => {
-	const socketRef = useRef<Socket | null>(null)
+	const socketRef = useRef<TSocket>(null)
 	const [isConnected, setIsConnected] = useState(false)
 
 	useEffect(() => {
@@ -21,7 +22,7 @@ export const useSocket = (token: string | null) => {
 
 		// Connect or Reconnect if token changed
 		if (socket) {
-			const currentAuthValues = (socket.auth as any)
+			const currentAuthValues = socket.auth as any
 			if (currentAuthValues?.token !== token) {
 				socket.disconnect()
 				socket = null
@@ -57,21 +58,16 @@ export const useSocket = (token: string | null) => {
 				setIsConnected(false)
 			})
 
-			// Set initial connection state
 			setIsConnected(socket.connected)
 		}
-        
-		socketRef.current = socket
 
-		return () => {
-			// Don't disconnect on unmount to keep connection alive across screens
-		}
+		socketRef.current = socket
 	}, [token])
 
 	return { socket: socketRef.current, isConnected }
 }
 
-export const getSocket = (): Socket | null => {
+export const getSocket = (): TSocket => {
 	return socket
 }
 

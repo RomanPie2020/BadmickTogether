@@ -6,6 +6,7 @@ import {
 	UseFormSetError,
 } from 'react-hook-form'
 import { TEventInput } from '../validations/event.schema'
+import { Socket } from 'socket.io-client'
 
 // topBar
 export interface IBaseButton {
@@ -353,3 +354,5 @@ export interface IEventMessage {
 		}
 	}
 }
+
+export type TSocket = Socket | null
